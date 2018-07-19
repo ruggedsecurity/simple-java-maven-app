@@ -24,13 +24,16 @@ pipeline {
             steps {
                 sh 'mvn test'
                 echo 'Test done'
-                publishMavenEvent()
             }
             post {
                 always {
                     junit 'target/surefire-reports/*.xml'
                 }
             }
+        }
+        stage('Publish') {
+            echo 'Publishing to Artifactory'
+            publishMavenEvent()
         }
     }
 }

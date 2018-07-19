@@ -12,9 +12,7 @@ pipeline {
             image 'maven:3-alpine'
         }
     }
-    environment {
-        VAR = gitEnvVars()
-    }
+
     stages {
         stage('Build') {
             steps {

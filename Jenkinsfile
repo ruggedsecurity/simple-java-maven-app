@@ -23,7 +23,7 @@ pipeline {
             steps {
                 sh 'mvn test'
                 echo 'Test done'
-                postMavenEvent()
+                publishMavenEvent()
             }
             post {
                 always {

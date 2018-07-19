@@ -12,6 +12,11 @@ pipeline {
             image 'maven:3-alpine'
         }
     }
+    
+    options {
+        // General Jenkins job properties
+        buildDiscarder(logRotator(numToKeepStr:'6'))
+    }
 
     stages {
         stage('Build') {

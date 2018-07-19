@@ -1,3 +1,11 @@
+library identifier: 'pipeline-library@master', retriever: modernSCM(
+    [$class: 'GitSCMSource', 
+    credentialsId: '', 
+    id: 'pipeline-library', 
+    remote: 'https://github.com/devopspatterns/pipeline-library.git', 
+    traits: [[$class: 'jenkins.plugins.git.traits.BranchDiscoveryTrait']]
+]) 
+
 pipeline {
     agent {
         docker {
@@ -15,6 +23,7 @@ pipeline {
             steps {
                 sh 'mvn test'
                 echo 'Test done'
+                postMavenEvent()
             }
             post {
                 always {

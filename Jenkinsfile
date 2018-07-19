@@ -13,7 +13,7 @@ pipeline {
         }
     }
     environment {
-        gitEnvVars()
+        VAR = gitEnvVars()
     }
     stages {
         stage('Build') {

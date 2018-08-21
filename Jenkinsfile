@@ -38,7 +38,7 @@ pipeline {
         }
         stage('Publish') {
             steps {
-                echo 'Publishing to Artifactory'
+                echo 'Publishing to Artifactory Now'
                 publishMavenEvent()
             }
         }
